@@ -6,22 +6,9 @@ import Arrow from '../Icons';
 import Label from '../Label';
 
 
-const calculateExperience = (startingDate: Date) => {
-    const currentDate = new Date();
-    const monthsOfExperience = (currentDate.getMonth() - startingDate.getMonth()) +
-        (12 * (currentDate.getFullYear() - startingDate.getFullYear()));
-
-    if (monthsOfExperience >= 12) {
-        const years = Math.floor(monthsOfExperience / 12);
-        return years === 1 ? `${years} year` : `${years} years`;
-    } else {
-        return monthsOfExperience === 1 ? `${monthsOfExperience} month` : `${monthsOfExperience} months`;
-    }
-};
 const Profile: React.FC = () => {
 
     const startingDate = new Date('December 1, 2022');
-    const experience = calculateExperience(startingDate);
 
 
     return (
@@ -60,7 +47,7 @@ const Profile: React.FC = () => {
                 <div className="mt-12 dark:text-gray-800 ">
                     <h4 className="mb-6 text-xl">Short-Bio:</h4>
                     <p className="lg:w-[80%] ">
-                        Hi, I'm Karan Kumar, a Full Stack Developer from India. I'm a student pursuing my B.Tech in Computer Science at Parul University. I specialize in frontend development and have been in the field for {experience}.
+                        Hi, I'm Karan Kumar, a Full Stack Developer from India. I'm a student pursuing my B.Tech in Computer Science at Parul University. I specialize in frontend development and have been in the field for 3 year.
                         <br />
                         <br />
                         And I love designing websites and mobile apps. I have worked with a few startups and have helped them in designing and developing their products.
