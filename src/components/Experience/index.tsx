@@ -53,8 +53,8 @@ const Experience = () => {
     <section id="experience" className="w-full container mx-auto py-20">
       {/* Section Header */}
       <div className="flex items-center gap-x-4 mb-10">
-        <h2 className="flex items-center gap-x-2 text-3xl font-bold dark:text-gray-300 text-white">
-          <span className="rounded text-pink-500 backdrop-blur">02.</span>Experience
+      <h2 className="flex items-center gap-x-2 text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white dark:text-gray-700">
+      <span className="rounded text-pink-500 backdrop-blur">02.</span>Experience
         </h2>
         <div className="relative top-[2px] h-[2px] flex-grow bg-white/20 dark:bg-gray-500"></div>
       </div>

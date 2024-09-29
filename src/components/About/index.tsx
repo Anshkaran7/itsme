@@ -60,14 +60,14 @@ const About: React.FC = () => {
                     <h4 className="mb-6 text-lg sm:text-xl md:text-2xl">Short-Bio:</h4>
                     <div className="overflow-y-auto h-[300px] sm:h-[400px] md:h-[450px]">
                         <p className={`lg:w-[80%] transition-transform duration-500 transform ${isVisible ? 'animate-fade-in-slide' : 'opacity-0'} text-sm md:text-base`}>
-                            Hi, I'm Karan Kumar, a Full Stack Developer from India. I'm a student pursuing my B.Tech in Computer Science at Parul University. I specialize in frontend development and have been in the field for 3 years.
+                            Hi, I&lsquo;m Karan Kumar, a Full Stack Developer from India. I&lsquo;m a student pursuing my B.Tech in Computer Science at Parul University. I specialize in frontend development and have been in the field for 3 years.
                             <br /><br />
                             I love designing websites and mobile apps. I have worked with a few startups and helped them in designing and developing their products.
                             <br /><br />
                             I contribute to open-source projects and love learning new technologies.
                         </p>
 
-                        <h4 className={`my-10 text-lg sm:text-xl md:text-2xl transition-transform duration-500 transform ${isVisible ? 'animate-fade-in-slide' : 'opacity-0'}`}>Technologies I'm using now:</h4>
+                        <h4 className={`my-10 text-lg sm:text-xl md:text-2xl transition-transform duration-500 transform ${isVisible ? 'animate-fade-in-slide' : 'opacity-0'}`}>Technologies I&lsquo;m using now:</h4>
                         {Object.entries(skills).map(([category, skillSet]) => (
                             <SkillSection key={category} title={capitalizeFirstLetter(category)} skills={skillSet} />
                         ))}

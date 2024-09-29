@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typewriter } from 'react-simple-typewriter';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 const Intro = () => {
   const fadeInUp = {
@@ -35,7 +34,7 @@ const Intro = () => {
 
           {/* Name with Animation */}
           <motion.span
-            className="group whitespace-nowrap flex justify-center md:justify-start w-fit text-white font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl sm:my-4 md:my-6 lg:my-8"
+            className="group whitespace-nowrap flex justify-center md:justify-start w-fit text-white font-extrabold text-3xl sm:text-4xl dark:text-gray-700 md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl sm:my-4 md:my-6 lg:my-8"
             variants={fadeInUp}
           >
             <span className="text-pink-600 transition duration-300 group-hover:-translate-x-6">&lt;</span>
@@ -48,7 +47,7 @@ const Intro = () => {
             className="flex flex-row gap-x-2 items-center justify-center md:justify-start text-white dark:text-gray-700 text-lg xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold"
             variants={fadeInUp}
           >
-            <p className="job">I'm a{' '}</p>
+            <p className="job">I&lsquo;m a{' '}</p>
             <Typewriter
               words={['Web Developer', 'React Native Developer']}
               loop={Infinity}

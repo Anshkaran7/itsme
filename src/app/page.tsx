@@ -31,7 +31,7 @@ export default function App() {
           </div>
 
           {/* Contact Section */}
-          <div className="snap-section mb-20">
+          <div className="snap-section mb-60">
             <Contact />
           </div>
         </main>

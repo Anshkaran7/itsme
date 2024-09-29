@@ -2,15 +2,18 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import axios from 'axios';
+import { log } from 'console';
 
 const Contact = () => {
-  const [name, setName] = React.useState<string>('');
-  const [email, setEmail] = React.useState<string>('');
-  const [message, setMessage] = React.useState<string>('');
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
   const [disabled, setDisabled] = useState(true);
   const [bgColor, setBgColor] = useState("#24252D");
   const [loading, setLoading] = useState(false); // Loading state
 
+  console.log(bgColor);
+  
   useEffect(() => {
     if (name.length > 2 && email.includes('@') && message.length > 2) {
       setDisabled(false);
@@ -21,7 +24,7 @@ const Contact = () => {
     }
   }, [name, email, message]);
 
-  const sendEmail = async (e: any) => {
+  const sendEmail = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     setLoading(true); // Start loading
 
@@ -95,7 +98,7 @@ const Contact = () => {
             </label>
             <textarea
               id="message"
-              className="peer rounded-md h-[10rem] border-0 bg-transparent p-2.5 leading-7 tracking-wider ring-1 ring-neutral-500/40 dark:focus:bg-white/60 focus:ring-pink-400 focus:outline-none focus:bg-neutral-900/70"
+              className="peer rounded-md h-[7rem] border-0 bg-transparent p-2.5 leading-7 tracking-wider ring-1 ring-neutral-500/40 dark:focus:bg-white/60 focus:ring-pink-400 focus:outline-none focus:bg-neutral-900/70"
               required
               value={message}
               onChange={(e) => setMessage(e.target.value)}
@@ -104,7 +107,7 @@ const Contact = () => {
           <div className="flex items-center gap-x-4 self-end">
             <button 
               type='submit' 
-              className={`flex h-[2.6rem] w-[8.2rem] items-center justify-center gap-x-2 rounded text-primary ring-1 ring-pink-400 backdrop-blur transition hover:bg-pink-600/90 hover:text-white hover:ring-pink-400 focus:ring-pink-400 ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`flex h-[2rem] w-[8.2rem] items-center justify-center gap-x-2 rounded text-primary ring-1 ring-pink-400 backdrop-blur transition hover:bg-pink-600/90 hover:text-white hover:ring-pink-400 focus:ring-pink-400 ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
               disabled={disabled || loading}
             >
               {loading ? (
