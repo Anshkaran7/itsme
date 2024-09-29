@@ -2,26 +2,438 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
+:root {
+  --black: 23, 23, 23;
+  --gray: #b1b1b1;
+  --dark-gray: #585858;
+  --darker-gray: 38, 38, 38;
+  --darker-main: 45, 113, 224;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbars for Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbars for all browsers */
+html, body {
+  scrollbar-width: none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(var(--black));
+  cursor: default;
+  overflow-y: scroll; /* Keep scrolling enabled */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+main{
+  width: 100%;
+  height: fit-content;
+}
+
+::-webkit-scrollbar{
+  background: none;
+  width: 0.6rem;
+}
+::-webkit-scrollbar-thumb{
+  background-color: white;
+}
+::-webkit-scrollbar-track{
+  background-color: transparent;
+}
+
+/* Colourful  */
+.spot-1 {
+  background-image: linear-gradient(
+    to right,
+    #f039ad,
+    rgba(13, 207, 255, 0.705)
+  );
+  animation: move1 30s infinite;
+}
+.spot-2 {
+  background-image: linear-gradient(
+    to right,
+    #4565f6,
+    rgba(236, 239, 59, 0.705)
+  );
+  animation: move2 30s infinite;
+}
+
+.spot-3 {
+  background-image: linear-gradient(
+    to right,
+    #26ad00,
+    rgba(255, 140, 17, 0.705)
+  );
+  animation: move3 30s infinite;
+}
+
+@keyframes move1 {
+  0% {
+    position: fixed;
+    top: 20%;
+    left: 10%;
+  }
+  50% {
+    position: fixed;
+    top: 80%;
+    left: 90%;
+  }
+  100% {
+    position: fixed;
+    top: 20%;
+    left: 10%;
+  }
+}
+
+@keyframes move2 {
+  0% {
+    position: fixed;
+    top: 40%;
+    right: 10%;
+  }
+  50% {
+    position: fixed;
+    top: 40%;
+    right: 90%;
+  }
+  100% {
+    position: fixed;
+    top: 40%;
+    right: 10%;
+  }
+}
+
+@keyframes move3 {
+  0% {
+    position: fixed;
+    bottom: 20%;
+    left: 40%;
+  }
+  50% {
+    position: fixed;
+    bottom: 80%;
+    left: 80%;
+  }
+  100% {
+    position: fixed;
+    bottom: 20%;
+    left: 40%;
+  }
+}
+
+/* index  */
+
+.blurred {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: -50;
+}
+
+
+/* ....................................Navbar Started ........................  */
+
+nav {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  /* background-color: rgb(var(--black), 0.6); */
+}
+
+nav a {
+  text-decoration: none;
+  -webkit-transition-duration: 0.4s;
+}
+nav .image{
+  -webkit-transition-duration: 0.5s
+}
+
+/* for mobile view--- toogle icon */
+
+
+.nav-menu{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  height: 0;
+  margin-top: 2rem;
+  padding: 0.2rem 1rem;
+  background-color: white;
+  border-radius: 0.4rem;
+  transition: ease .2s;
+}
+.nav-menu::before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0.16rem 0.5rem;
+  background-color: white;
+  border-radius: 0.4rem;
+  transform: translateY(0.5rem) translateX(0.5rem);
+  transition: ease .2s;
+}
+.nav-menu::after{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0.16rem 0.5rem;
+  background-color: white;
+  border-radius: 0.4rem;
+  transform: translateY(-0.5rem) translateX(-0.5rem);
+  transition: ease .2s;
+}
+.nav-menu.close{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 0;
+  height: 0;
+  padding: 0.2rem 1rem;
+  background-color: white;
+  border-radius: 0.4rem;
+  transition: ease .2s;
+  transform: rotate(-45deg)
+}
+.nav-menu.close::before{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0.2rem 0.5rem;
+  background-color: white;
+  border-radius: 0.4rem;
+  transform: rotate(90deg) translate(0.5rem,0rem);
+}
+.nav-menu.close::after{
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0.2rem 0.5rem;
+  background-color: white;
+  border-radius: 0.4rem;
+  transform: rotate(-90deg) translate(0.5rem,0rem);
+}
+
+.mobile-menu{
+  position: fixed;
+  top: 5.5rem;
+  left: 0;
+  transition: ease .2s;
+  z-index: 10;
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+  overflow: hidden;
+}
+.mobile-menu.inactive{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 60%;
+  height: 1vh;
+  gap: 1rem;
+  transform: translateX(-120%);
+}
+.mobile-menu.active{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 65%;
+  height: 60vh;
+  gap: 1rem;
+}
+
+.mobile-links{
+  display: flex;
+  flex-direction: column;
+  gap: .2rem;
+  width: 100%;
+  padding: 2rem 0rem;
+}
+.mobile-links a{
+  width: 100%;
+  display: flex;
+  font-size: 1.2rem;
+  padding: 1rem 1.6rem;
+}
+
+
+.wrapper {
+  display: inline-flex;
+  list-style: none;
+}
+
+.wrapper .icon {
+  position: relative;
+  background: #ffffff;
+  border-radius: 50%;
+  padding: 15px;
+  margin: 10px;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip {
+  position: absolute;
+  top: 0;
+  left:-5px;
+  font-size: 14px;
+  background: #ffffff;
+  color: #ffffff;
+  padding: 5px 8px;
+  border-radius: 5px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .tooltip::before {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  background: #ffffff;
+  bottom: -3px;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.wrapper .icon:hover .tooltip {
+  top: -45px;
+  left:-5px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.wrapper .icon:hover span,
+.wrapper .icon:hover .tooltip {
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .linkedin:hover,
+.wrapper .linkedin:hover .tooltip,
+.wrapper .linkedin:hover .tooltip::before {
+  background: #0077b5;
+  color: #ffffff;
+}
+
+.wrapper .twitter:hover,
+.wrapper .twitter:hover .tooltip,
+.wrapper .twitter:hover .tooltip::before {
+  background: #1DA1F2;
+  color: #ffffff;
+}
+
+.wrapper .github:hover,
+.wrapper .github:hover .tooltip,
+.wrapper .github:hover .tooltip::before {
+  background: #333333;
+  color: #ffffff;
+}
+
+/* ....................................Navbar Completed ........................  */
+
+
+.scroll-container {
+  scroll-snap-type: y mandatory; /* Enables vertical snap scrolling */
+  overflow-y: scroll; /* Enable scrolling */
+  height: 100vh; /* Make the container take up full viewport height */
+}
+
+.snap-section {
+  scroll-snap-align: start; /* Snap when the section starts */
+  height: 100vh; /* Each section takes full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fade-in {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+@keyframes fade-in-slide {
+  0% {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s forwards; /* Adjust duration as needed */
+}
+
+.animate-fade-in-slide {
+  animation: fade-in-slide 0.5s forwards; /* Adjust duration as needed */
+}
+
+
+.group:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+.swiper-slide {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.5; /* Default opacity for side slides */
+  transform: scale(0.85); /* Smaller size for side slides */
+}
+
+/* Active (center) slide */
+.swiper-slide-active {
+  opacity: 1; /* Full opacity for the active slide */
+  transform: scale(1); /* Full size for the active slide */
+}
+
