@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'sonner';
 import axios from 'axios';
-import { log } from 'console';
 
 const Contact = () => {
   const [name, setName] = useState<string>('');
