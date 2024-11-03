@@ -11,7 +11,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: 'Bad Request: Missing required fields' }, { status: 400 });
     }
 
-    // Set up Nodemailer transporter using environment variables for Gmail credentials
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
